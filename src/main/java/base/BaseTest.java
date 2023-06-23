@@ -7,7 +7,7 @@ import listeners.TestListeners;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import page.MainPage;
+import utilities.CommonFlows;
 import utilities.DriverManager;
 import utilities.Logs;
 
@@ -18,25 +18,25 @@ public abstract class BaseTest {
     protected final String smoke = "Smoke";
     protected final String setup = "Setup";
     private AndroidDriver driver;
-    protected MainPage mainPage;
+    protected CommonFlows commonFlows;
 
     @BeforeMethod(alwaysRun = true, description = "Master setup")
     public void setupDriver() {
         final var driverManager = new DriverManager();
-        mainPage = new MainPage(driver);
+
         if (runOnServer) {
             driver = driverManager.buildRemoteDriver();
         } else {
             driver = driverManager.builLocalDriver();
         }
         initPages(driver);
-        mainPage.waitPageToLoad();
+        commonFlows = new CommonFlows(driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Master TearDown")
     public void tearDownDriver() {
         Logs.debug("killing the driver");
-        driver.quit();
+        //driver.quit();
     }
 
     public AndroidDriver getDriver() {
