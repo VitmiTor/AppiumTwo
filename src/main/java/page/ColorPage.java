@@ -3,6 +3,7 @@ package page;
 import base.BasePage;
 import elements.$;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Step;
 
 import static elements.$.LocatorType.CLASSNAME;
 import static elements.$.LocatorType.ID;
@@ -31,11 +32,10 @@ public class ColorPage extends BasePage {
         softAssert.assertAll();
     }
 
+    @Step("Writing the color to change")
     public void writeColor(String color) {
         colorText.clear();
         colorText.sendKeys(color);
         btnOk.click();
     }
-
-
 }

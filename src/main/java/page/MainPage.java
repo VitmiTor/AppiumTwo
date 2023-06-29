@@ -3,6 +3,7 @@ package page;
 import base.BasePage;
 import elements.$;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Step;
 
 import static elements.$.LocatorType.ID;
 
@@ -31,6 +32,7 @@ public class MainPage extends BasePage {
         softAssert.assertAll();
     }
 
+    @Step("Pick the pencil color")
     public void pickColor() {
         pickPencilColor.click();
     }

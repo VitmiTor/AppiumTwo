@@ -14,6 +14,13 @@ public class CommonFlows {
         this.driver = driver;
     }
 
+    @Step()
+    public void masterWait() {
+        MainPage mainPage = new MainPage(driver);
+
+        mainPage.waitPageToLoad();
+    }
+
     @Step("Change Background Color")
     public void changeBackgroundColor(String color) {
         MainPage mainPage = new MainPage(driver);

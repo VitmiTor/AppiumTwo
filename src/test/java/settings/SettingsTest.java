@@ -2,6 +2,7 @@ package settings;
 
 import base.BaseTest;
 import io.appium.java_client.android.AndroidDriver;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.AboutPage;
 import page.MainPage;
@@ -15,9 +16,13 @@ public class SettingsTest extends BaseTest {
     private MainPage mainPage;
     private AboutPage aboutPage;
 
+    @BeforeMethod
+    public void topBarWait() {
+        topBarPage.waitPageToLoad();
+    }
+
     @Test
     public void settingPageTest() {
-        topBarPage.waitPageToLoad();
         topBarPage.clickSetting();
         settingPage.waitPageToLoad();
         settingPage.pressBackButton();
@@ -26,7 +31,6 @@ public class SettingsTest extends BaseTest {
 
     @Test
     public void aboutTest() {
-        topBarPage.waitPageToLoad();
         topBarPage.clickAbout();
         aboutPage.waitPageToLoad();
         aboutPage.clickReddit();

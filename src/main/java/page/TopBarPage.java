@@ -3,6 +3,7 @@ package page;
 import base.BasePage;
 import elements.$;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Step;
 
 import static elements.$.LocatorType.*;
 
@@ -34,24 +35,29 @@ public class TopBarPage extends BasePage {
         softAssert.assertAll();
     }
 
+    @Step("Click on Background Option")
     public void clickBackgroundOption() {
         options.click();
         changeBack.click();
     }
 
+    @Step("Click on Save")
     public void savePicture() {
         saveButton.click();
     }
 
+    @Step("clearing canvas")
     public void clearCanvas() {
         clearButton.click();
     }
 
+    @Step("Clicking on Setting")
     public void clickSetting() {
         options.click();
         settingButton.click();
     }
 
+    @Step("Click on About")
     public void clickAbout() {
         options.click();
         aboutButton.click();

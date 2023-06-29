@@ -3,6 +3,7 @@ package page;
 import base.BasePage;
 import elements.$;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Step;
 
 import static elements.$.LocatorType.ID;
 
@@ -30,6 +31,7 @@ public class AboutPage extends BasePage {
         softAssert.assertAll();
     }
 
+    @Step("Clicking on Reddit icon")
     public void clickReddit() {
         redditButton.click();
     }
