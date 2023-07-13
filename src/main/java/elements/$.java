@@ -64,6 +64,12 @@ public class $ {
         return this;
     }
 
+    public $ clear() {
+        findElement();
+        webElement.clear();
+        return this;
+    }
+
     public boolean isDisplayed() {
         findElement();
         return webElement.isDisplayed();
@@ -130,7 +136,8 @@ public class $ {
 
     public enum Orientation {
         HORIZONTAL,
-        VERTICAL
+        VERTICAL,
+        DIAGONAL
     }
 
     //28:00

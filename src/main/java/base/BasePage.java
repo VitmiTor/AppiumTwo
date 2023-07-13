@@ -1,5 +1,6 @@
 package base;
 
+import com.github.javafaker.Faker;
 import elements.$;
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
@@ -17,6 +18,7 @@ public abstract class BasePage {
     protected SoftAssert softAssert;
     protected int timeout;
     protected Gestures gestures;
+    protected Faker faker;
 
     public BasePage(AndroidDriver driver) {
         this.driver = driver;
@@ -24,6 +26,7 @@ public abstract class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         softAssert = new SoftAssert();
         gestures = new Gestures(driver);
+        faker = new Faker();
     }
 
     public BasePage(AndroidDriver driver, int timeout) {

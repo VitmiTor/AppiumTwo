@@ -32,7 +32,7 @@ public class Gestures {
     }
 
     public WebElement horizontalScrollInto(String locatorString) {
-        Logs.debug(String.format("Vertical Scrolling into %s", locatorString));
+        Logs.debug(String.format("Horizontal Scrolling into %s", locatorString));
         final var uiAutomatorText =
                 String.format("UiScrollable(scrollable(true)).setAsHorizontalList().scrollIntoView(%s)", locatorString);
         return driver.findElement(new AppiumBy.ByAndroidUIAutomator(uiAutomatorText));
